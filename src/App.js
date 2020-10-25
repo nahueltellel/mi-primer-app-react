@@ -1,13 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import NavBar from './component/NavBar.js';
+import ItemListContainer from './component/ItemListContainer.js';
 
 function App() {
   return (
     <>
     <NavBar />
-    </>
+    <ItemListContainer />
+    </> 
   );
 }
 
