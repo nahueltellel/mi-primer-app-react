@@ -1,5 +1,9 @@
+import { faOtter } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import ItemCount from './ItemCount.js';
+import ItemDetailContainer from './ItemDetailContainer.js';
+
+
 
 function Item({title, price, description, img, stock}){
     return <>
