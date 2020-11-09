@@ -1,10 +1,8 @@
-import { faOtter } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import ItemCount from './ItemCount.js';
 import ItemDetailContainer from './ItemDetailContainer.js';
 
-
-
+  
 function Item({title, price, description, img, stock}){
     return <>
     <div class="col-lg-4 col-md-6 mb-4">
@@ -19,6 +17,7 @@ function Item({title, price, description, img, stock}){
               </div>
               <div class="card-footer">
               <ItemCount amount={1} max={stock} min={1} />
+              <ItemDetailContainer title={title} price={price} description={description} img={img} stock={stock} />
               </div>
               </div>
           </div>

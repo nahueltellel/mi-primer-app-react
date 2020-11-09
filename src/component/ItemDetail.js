@@ -1,13 +1,13 @@
 import React from 'react';
-import ItemCount from 'ItemCount.js';
 
-function ItemDetail({items}){
 
-return <>
-{Object.keys(items).map(i=> {
-        return(
+function ItemDetail({detail}){
 
-<section class="mb-5">
+  return <>
+  {Object.keys(detail).map(i=> {
+      return(
+
+        <section class="mb-5">
 
   <div class="row">
     <div class="col-md-6 mb-4 mb-md-0">
@@ -87,8 +87,8 @@ return <>
     </div>
     <div class="col-md-6">
 
-      <h5>{items[i].title}</h5>
-      <p class="mb-2 text-muted text-uppercase small">{items[i].stock} en stock</p>
+      <h5>{detail[i].title}</h5>
+      <p class="mb-2 text-muted text-uppercase small">{detail[i].stock} en stock</p>
       <ul class="rating">
         <li>
           <i class="fas fa-star fa-sm text-primary"></i>
@@ -106,8 +106,8 @@ return <>
           <i class="far fa-star fa-sm text-primary"></i>
         </li>
       </ul>
-      <p><span class="mr-1"><strong>{items[i].price}</strong></span></p>
-      <p class="pt-1">{items[i].description}</p>
+      <p><span class="mr-1"><strong>{detail[i].price}</strong></span></p>
+      <p class="pt-1">{detail[i].description}</p>
       <div class="table-responsive">
         <table class="table table-sm table-borderless mb-0">
           <tbody>
@@ -126,16 +126,14 @@ return <>
           </tbody>
         </table>
       </div>
-      <hr>
-      <ItemCount amount={1} max={stock} min={1} />
-    </hr>
   </div>
   </div>
 </section>
- )
-})}
 
-    </>
+         
+  )
+  })}
+</>
 
 }
 
