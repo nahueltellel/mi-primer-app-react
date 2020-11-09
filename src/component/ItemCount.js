@@ -13,12 +13,12 @@ function ItemCount({amount, max, min}){
     }
   
     return <>
-       <div class="container">
-        <div class="qty mt-5">
-          <span class="minus bg-dark" onClick={onRemove}>-</span>
-          <input type="number" class="count" name="qty" value={count} />
-          <span class="plus bg-dark" onClick={onAdd}>+</span>
-          <button class="btn btn-primary">Añadir al carrito</button>
+       <div className="container">
+        <div className="qty mt-5">
+          <span className="minus bg-dark" onClick={onRemove}>-</span>
+          <input type="number" className="count" name="qty" value={count} />
+          <span className="plus bg-dark" onClick={onAdd}>+</span>
+          <button className="btn btn-primary">Añadir al carrito</button>
         </div>
         </div>
           </>

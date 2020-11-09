@@ -1,27 +1,9 @@
-import React, {useState ,useEffect } from 'react';
+import React from 'react';
 import ItemDetail from './ItemDetail.js';
 
-function ItemDetailContainer(title, price, description, img, stock) {
-  const getDetail = new Promise((res) =>{
-    setTimeout(() => {
-      res([ {
-        title:{title},
-        price:{price},
-        description:{description},
-        img:{img},
-        stock:{stock},
-      }
-  ])}, 2000)
-  })
-  const [detail, setDetail] = useState([]);
-    useEffect(() => {
-      getDetail.then(result=>
-        setDetail(result))
-       }, [detail]);
+function ItemDetailContainer({title, price, description, img, stock}) {
        return <>
-       {detail.length > 0 ? 
-  <ItemDetail detail={detail} initial={1} /> : <span>CARGANDO</span>
-       }
+  <ItemDetail title={title} price={price} description={description} img={img} stock={stock} initial={1} /> : <span>CARGANDO</span>
   </>
     }
   
