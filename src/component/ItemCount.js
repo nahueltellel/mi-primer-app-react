@@ -18,8 +18,8 @@ function ItemCount({amount, max, min}){
           <span className="minus bg-dark" onClick={onRemove}>-</span>
           <input type="number" className="count" name="qty" value={count} />
           <span className="plus bg-dark" onClick={onAdd}>+</span>
-          <button className="btn btn-primary">Añadir al carrito</button>
         </div>
+        <button className="btn btn-primary">Añadir al carrito</button>
         </div>
           </>
   }
