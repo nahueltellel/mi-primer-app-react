@@ -37,8 +37,7 @@ const getItems = () => {
 }
 
 function ItemListContainer() {
-  const [items, setItem ] = useState([]);
-
+  const [items, setItem] = useState([]);
     useEffect(() => {
       getItems().then(result=>
         setItem(result))
