@@ -1,9 +1,11 @@
 import React from 'react';
 import ItemDetail from './ItemDetail.js';
+import {useParams} from 'react-router-dom';
 
-function ItemDetailContainer({title, price, description, img, stock}) {
+function ItemDetailContainer({id, title, price, description, img, stock}){
+  const {itm} = useParams();
        return <>
-  <ItemDetail title={title} price={price} description={description} img={img} stock={stock} initial={1} /> : <span>CARGANDO</span>
+  <ItemDetail id={id} title={title} price={price} description={description} img={img} stock={stock} initial={1} /> : <span>CARGANDO</span>
   </>
     }
   

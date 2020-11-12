@@ -25,7 +25,7 @@ function App() {
 </div>
 </div>
         </Route>
-        <Route exact path="/item/:id">
+        <Route exact path="/item/:itm">
           <ItemDetailContainer />
         </Route>
     </Switch>
