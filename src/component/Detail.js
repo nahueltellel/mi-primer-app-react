@@ -3,7 +3,7 @@ import React from 'react';
 import Item from './Item.js';
 import ItemCount from './ItemCount.js';
 
-function Detail(id, title, price, description, img, stock){
+function Detail({id, title, price, description, img, stock}){
     return <>
 
      <section className="mb-5">

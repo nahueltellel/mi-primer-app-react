@@ -1,24 +1,23 @@
 import React, {useState, useEffect} from 'react';
 import ItemDetail from './ItemDetail.js';
 
-  const getItem = () => { new Promise((res) =>{
-    setTimeout(() => {
-      res([  {
-        id: {id},
-        price: {price},
-        title: {title},
-        description: {description},
-        img: {img},
-        stock: {stock},              
-    },
-  ])}, 2000)
-  });
-  }
 
 function ItemDetailContainer({id, title, price, description, img, stock}){
   const [item, setItem ] = useState([]);
     useEffect(() => {
-    getItem().then(result=>
+      const task = new Promise((res) =>{
+        setTimeout(() => {
+          res([  {
+            id: {id},
+            price: {price},
+            title: {title},
+            description: {description},
+            img: {img},
+            stock: {stock},              
+          }
+        ])}, 2000)
+      });
+    task.then(result=>
       setItem(result))
      }, [item]);
        return <>
