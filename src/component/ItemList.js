@@ -6,7 +6,7 @@ function ItemList({items}){
     return <>
     {Object.keys(items).map(i=> {
         return(
-            <Item title={items[i].title} price={items[i].price} description={items[i].description} img={items[i].img} stock={items[i].stock} />
+            <Item id={items[i].id} title={items[i].title} price={items[i].price} description={items[i].description} img={items[i].img} stock={items[i].stock} />
     )
     })}
 </>

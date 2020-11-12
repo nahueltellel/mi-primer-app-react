@@ -1,17 +1,15 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 import ItemCount from './ItemCount.js';
 import ItemDetailContainer from './ItemDetailContainer.js';
 
   
-function Item({title, price, description, img, stock}){
-   const [display, setDisplay] = useState(false);
-   const getIdc = () => {
-    setDisplay(true)
-  }
+function Item({id, title, price, description, img, stock}){
+  
     return <>
     <div className="col-lg-4 col-md-6 mb-4">
             <div className="card h-100">
-              <a onClick={getIdc}><img class="card-img-top" src={img} alt={title} /></a>
+              <Link to={`/item/${id}`}><a><img class="card-img-top" src={img} alt={title} /></a> </Link>
               <div className="card-body">
                 <h4 className="card-title">
                   <a href="#">{title}</a>
@@ -24,9 +22,6 @@ function Item({title, price, description, img, stock}){
               </div>
               </div>
           </div>
-          <div className={display ? "mostrar" : "ocultar" }>
-     <ItemDetailContainer title={title} price={price} description={description} img={img} stock={stock} />
-       </div> 
     </>
 }
 
