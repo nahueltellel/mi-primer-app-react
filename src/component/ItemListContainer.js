@@ -13,7 +13,7 @@ const getItems = () => {
       price: "24,99",
       title: "Slam Dunk",
       description: "Figuras coleccionables de Hanamichi y Rukawa de Slam Dunk",
-      img: {slamdunk},
+      img: slamdunk,
       stock: 10,              
   },
   {
@@ -21,7 +21,7 @@ const getItems = () => {
     price: "24,99",
     title: "Tokyo Ghoul",
     description: "Figura de Kaneki-ken de Tokyo Ghoul",
-    img: {tokyoghoul},
+    img: tokyoghoul,
     stock: 4,             
 },
 {
@@ -29,7 +29,7 @@ const getItems = () => {
   price: "24,99",
   title: "Tengen Toppa",
   description: "Llavero metálico de Tengen Toppa",
-  img: {tengen},
+  img: tengen,
   stock: 7,                
 }
 ])}, 2000)
