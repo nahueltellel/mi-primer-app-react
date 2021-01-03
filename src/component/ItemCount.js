@@ -1,15 +1,15 @@
 import React, {useState} from "react";
 
-function ItemCount({amount, max, min}){
+function ItemCount({max, min}){
     const [count, setCount] = useState(min);
     function onAdd() {
         if(count >= 0 && count < max) {
-        setCount(count+amount)
+        setCount(count+1)
         }
     }
     function onRemove(){
         if(count > min)
-        setCount(count-amount)
+        setCount(count-1)
     }
   
     return <>

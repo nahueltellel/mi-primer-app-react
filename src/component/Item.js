@@ -20,7 +20,7 @@ function Item({id, title, price, description, img, stock}){
                 <p className="card-text">{description}</p>
               </div>
               <div className="card-footer">
-              <ItemCount amount={1} max={stock} min={1} />
+              <ItemCount max={stock} min={1} />
               </div>
               </div>
           </div>
