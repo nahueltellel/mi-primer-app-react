@@ -3,7 +3,7 @@ import React from 'react';
 import ItemCount from './ItemCount.js';
 
 
-function ItemDetail({item}){
+function ItemDetail({id, price, title, description, img, stock}){
   return <>
             <section className="mb-5">
 
@@ -18,39 +18,36 @@ function ItemDetail({item}){
 
         <div className="col-12 mb-0">
           <figure className="view overlay rounded z-depth-1 main-img">
-            <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
-              data-size="710x823">
-              <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
+              <img src={img}
                 className="img-fluid z-depth-1"/>
-            </a>
           </figure>
         </div>
         <div className="col-12">
           <div className="row">
             <div className="col-3">
               <div className="view overlay rounded z-depth-1 gallery-item">
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
+                <img src= {img}
                   className="img-fluid" />
                 <div className="mask rgba-white-slight"></div>
               </div>
             </div>
             <div className="col-3">
               <div className="view overlay rounded z-depth-1 gallery-item">
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13a.jpg"
+                <img src={img}
                   className="img-fluid" />
                 <div className="mask rgba-white-slight" ></div>
               </div>
             </div>
             <div className="col-3">
               <div className="view overlay rounded z-depth-1 gallery-item">
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14a.jpg"
+                <img src={img}
                   className="img-fluid" />
                 <div className="mask rgba-white-slight"></div>
               </div>
             </div>
             <div className="col-3">
               <div className="view overlay rounded z-depth-1 gallery-item">
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
+                <img src={img}
                   className="img-fluid" />
                 <div className="mask rgba-white-slight"></div>
               </div>
@@ -64,10 +61,10 @@ function ItemDetail({item}){
   </div>
   <div class="col-md-6">
 
-    <h5>{item.title}</h5>
-    <p className="mb-2 text-muted text-uppercase small">{item.stock} en stock</p>
-    <p><span class="mr-1"><strong>{item.price}</strong></span></p>
-    <p className="pt-1">{item.description}</p>
+    <h5>{title}</h5>
+    <p className="mb-2 text-muted text-uppercase small">{stock} en stock</p>
+    <p><span class="mr-1"><strong>{price}</strong></span></p>
+    <p className="pt-1">{description}</p>
     <div className="table-responsive">
       <table className="table table-sm table-borderless mb-0">
         <tbody>
@@ -87,7 +84,7 @@ function ItemDetail({item}){
       </table>
     </div>
     <hr></hr>
-    <ItemCount amount={1} max={item.stock} min={1} />
+    <ItemCount amount={1} max={stock} min={1} />
 </div>
 </div>
 </section>
@@ -97,7 +94,7 @@ function ItemDetail({item}){
     <div class="col-md-6 col-lg-3 mb-5">
       <div class="">
         <div class="view zoom overlay z-depth-2 rounded">
-          <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg">
+          <a href="">
             <div class="mask">
               <img class="img-fluid w-100"
                 src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" />
@@ -114,7 +111,7 @@ function ItemDetail({item}){
     <div class="col-md-6 col-lg-3 mb-5">
       <div class="">
         <div class="view zoom overlay z-depth-2 rounded">
-          <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg">
+          <a href="">
             <div class="mask">
               <img class="img-fluid w-100"
                 src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg" />
@@ -131,7 +128,7 @@ function ItemDetail({item}){
     <div class="col-md-6 col-lg-3 mb-5">
       <div class="">
         <div class="view zoom overlay z-depth-2 rounded">
-          <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg">
+          <a href="">
             <div class="mask">
               <img class="img-fluid w-100"
                 src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg" />
@@ -151,7 +148,7 @@ function ItemDetail({item}){
     <div class="col-md-6 col-lg-3 mb-5">
       <div class="">
         <div class="view zoom overlay z-depth-2 rounded">
-          <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg">
+          <a href="">
             <div class="mask">
               <img class="img-fluid w-100"
                 src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg" />
