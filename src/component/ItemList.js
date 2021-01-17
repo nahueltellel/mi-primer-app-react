@@ -2,11 +2,11 @@ import React from 'react';
 import Item from './Item.js';
 
 
-function ItemList({items}){
+function ItemList({products}){
     return <>
-    {Object.keys(items).map(i=> {
+    {Object.keys(products).map(i=> {
         return(
-            <Item id={items[i].id} title={items[i].title} price={items[i].price} description={items[i].description} img={items[i].img} stock={items[i].stock} />
+            <Item id={products[i].id} title={products[i].title} price={products[i].price} description={products[i].description} img={products[i].img} stock={products[i].stock} />
     )
     })}
 </>

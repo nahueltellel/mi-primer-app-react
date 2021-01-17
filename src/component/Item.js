@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
-import ItemCount from './ItemCount.js';
-import ItemDetailContainer from './ItemDetailContainer.js';
 
   
 function Item({id, title, price, description, img, stock}){
