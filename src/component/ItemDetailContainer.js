@@ -5,7 +5,7 @@ import slamdunk from '../img/slamdunk.jpg';
 import tengen from '../img/tengen.jpg';
 import tokyoghoul from '../img/tokyoghoul.jpg';
 
-const productos= [
+const products= [
   {
     id: 1,
     price: "24,99",
@@ -29,7 +29,15 @@ title: "Tengen Toppa",
 description: "Llavero metálico de Tengen Toppa",
 img: tengen,
 stock: 7,                
-}
+},
+{
+  id: 4,
+    price: "17,00",
+    title: "Attack on Titan",
+    description: "Attack on titan colección completa",
+    img: tengen,
+    stock: 12,
+  }
 ]
 
 function ItemDetailContainer(){
@@ -38,7 +46,7 @@ function ItemDetailContainer(){
     useEffect(() => {
       const task = new Promise((res) =>{
         setTimeout(() => {
-          const i = productos.find(producto => producto.id == id)
+          const i = products.find(product => product.id == id)
         res(i);
       }, 2000);
       });
@@ -47,7 +55,7 @@ function ItemDetailContainer(){
      }, [id]);
        return <>
        { item ? 
-  <ItemDetail id={item.id} price={item.price} title={item.title} description={item.description} img={item.img} stock={item.stock} /> : <span>CARGANDO</span>
+  <ItemDetail item={item} id={item.id} price={item.price} title={item.title} description={item.description} img={item.img} stock={item.stock} /> : <span>CARGANDO</span>
 }
   </>
     }

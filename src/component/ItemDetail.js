@@ -1,9 +1,28 @@
 import { render } from '@testing-library/react';
-import React from 'react';
+import React, {useState} from 'react';
 import ItemCount from './ItemCount.js';
 
 
-function ItemDetail({id, price, title, description, img, stock}){
+function ItemDetail({item, id, price, title, description, img, stock}){
+  const [count, setCount] = useState(1);
+  const [info, setInfo] = useState([]);
+  const [add, setAdd] = useState(false);
+  function cartAdd(product){
+    setInfo(...info, { id: product.id, price: product.price, title: product.title, description: product.description, img: product.img, stock: product.stock, count: count})
+    setAdd(true)
+}
+
+
+  function onAdd() {
+      if(count >= 0 && count < stock) {
+      setCount(count+1)
+      }
+  }
+  function onRemove(){
+      if(count > 1)
+      setCount(count-1)
+  }
+
   return <>
             <section className="mb-5">
 
@@ -84,7 +103,7 @@ function ItemDetail({id, price, title, description, img, stock}){
       </table>
     </div>
     <hr></hr>
-    <ItemCount amount={1} max={stock} min={1} />
+    <ItemCount item={item} onAdd={onAdd} add={add} onRemove={onRemove} count={count} cartAdd={cartAdd}/>
 </div>
 </div>
 </section>

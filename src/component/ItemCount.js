@@ -1,17 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 
-function ItemCount({max, min}){
-    const [count, setCount] = useState(min);
-    function onAdd() {
-        if(count >= 0 && count < max) {
-        setCount(count+1)
-        }
-    }
-    function onRemove(){
-        if(count > min)
-        setCount(count-1)
-    }
-  
+function ItemCount({item, onAdd, add, onRemove, count, cartAdd }){
+
     return <>
        <div className="container">
         <div className="qty mt-5">
@@ -19,7 +9,10 @@ function ItemCount({max, min}){
           <input type="number" className="count" name="qty" value={count} />
           <span className="plus bg-dark" onClick={onAdd}>+</span>
         </div>
-        <button className="btn btn-primary">Añadir al carrito</button>
+        { !add? (<button className="btn btn-primary" onClick={ () => cartAdd(item)}>Añadir al carrito</button>)
+        : (<button className="btn btn-primary">Terminar la compra</button>)
+      }
+
         </div>
           </>
   }
