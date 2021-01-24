@@ -22,7 +22,7 @@ function CartProvider({children}){
             setCart([...cart, newItem]);
         }
         function deleteFromCart(id){
-            const newCart = cart.filter(product => product.id !== id)
+        const newCart = cart.filter(product => product.id !== id)
             setCart(newCart)
         }
         

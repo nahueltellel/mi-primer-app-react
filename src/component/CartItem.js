@@ -31,8 +31,8 @@ function CartItem({ id, title, img, price, amount }){
       </div>
       <div className="d-flex justify-content-between align-items-center">
         <div>
-          <a href="" onClick={deleteFromCart} type="button" className="card-link-secondary small text-uppercase mr-3"><i
-              className="fas fa-trash-alt mr-1"></i> Borrar item </a>
+          <button onClick={ () => deleteFromCart(id)} type="button" className="card-link-secondary small text-uppercase mr-3"><i
+              className="fas fa-trash-alt mr-1"></i> Borrar item </button>
         </div>
         <p className="mb-0"><span><strong>{price}</strong></span></p>
       </div>
