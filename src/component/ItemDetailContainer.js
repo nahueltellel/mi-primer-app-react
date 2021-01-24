@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ItemDetail from './ItemDetail.js';
 import {useParams} from "react-router-dom";
 import slamdunk from '../img/slamdunk.jpg';
+import titan from '../img/titan.jpg';
 import tengen from '../img/tengen.jpg';
 import tokyoghoul from '../img/tokyoghoul.jpg';
 
@@ -35,7 +36,7 @@ stock: 7,
     price: 17.50,
     title: "Attack on Titan",
     description: "Attack on titan colección completa",
-    img: tengen,
+    img: titan,
     stock: 12,
   }
 ]

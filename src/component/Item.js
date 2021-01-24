@@ -15,9 +15,11 @@ function Item({id, title, price, description, img, stock}){
                 <p className="card-text">{description}</p>
               </div>
               <div className="card-footer">
+              <Link to={"/item/" + id}>
               <button className="btn btn-primary">
-                <Link to={"/item/" + id}>Ver más</Link>
+                Comprar
                 </button>
+                </Link>
               </div>
               </div>
           </div>

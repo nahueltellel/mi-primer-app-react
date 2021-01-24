@@ -20,6 +20,8 @@ function ItemCount({item, id, onAdd, onRemove, count }){
         { !open? (<button className="btn btn-primary" onClick={ () => addAndOpen(item,count,id)}>Añadir al carrito</button>)
         : (<Link to="/cart"><button className="btn btn-primary">Terminar la compra</button></Link>)
       }
+      <br/>
+      <Link to="/"><button className="btn btn-primary mt-3">Seguir comprando</button></Link>
 
         </div>
           </>

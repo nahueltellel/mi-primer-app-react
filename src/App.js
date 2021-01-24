@@ -1,6 +1,7 @@
 import React, {useState ,useEffect } from 'react';
 import './App.css';
 import slamdunk from './img/slamdunk.jpg';
+import titan from './img/titan.jpg';
 import tengen from './img/tengen.jpg';
 import tokyoghoul from './img/tokyoghoul.jpg';
 import NavBar from './component/NavBar.js';
@@ -43,8 +44,8 @@ const products = [{
 id: 4,
   price: 17.50,
   title: "Attack on Titan",
-  description: "Attack on titan colección completa",
-  img: tengen,
+  description: "Attack on Titan colección completa",
+  img: titan,
   stock: 12,
   categoryId: "manga",
 }]

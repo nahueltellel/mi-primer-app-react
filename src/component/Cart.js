@@ -1,6 +1,7 @@
 import React, {useContext, useEffect} from 'react';
-import CartItem from './CartItem.js'
-import {CartContext} from './CartContext.js'
+import CartItem from './CartItem.js';
+import {CartContext} from './CartContext.js';
+import {Link} from 'react-router-dom';
 
 function Cart(){
     const {cart, money, quantity, delivery, deliveryTime} = useContext(CartContext);
@@ -94,6 +95,7 @@ function Cart(){
         </ul>
 
         <button type="button" className="btn btn-primary btn-block">Checkout</button>
+        <Link to={"/"}><button type="button" className="btn btn-primary btn-block mt-3">Seguir comprando</button></Link>
 
       </div>
     </div>
