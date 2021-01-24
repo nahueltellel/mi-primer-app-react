@@ -16,7 +16,7 @@ function ItemListContainer({products}) {
     },[id, products])
        return <>
        { item.length > 0 ? 
-  <ItemList products={item} initial={1} /> : <span>CARGANDO</span>
+  <ItemList products={item} /> : <span>CARGANDO</span>
        }
   </>
     }
