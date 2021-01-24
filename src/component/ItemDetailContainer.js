@@ -8,7 +8,7 @@ import tokyoghoul from '../img/tokyoghoul.jpg';
 const products= [
   {
     id: 1,
-    price: "24,99",
+    price: 35.99,
     title: "Slam Dunk",
     description: "Figuras coleccionables de Hanamichi y Rukawa de Slam Dunk",
     img: slamdunk,
@@ -16,7 +16,7 @@ const products= [
 },
 {
   id: 2,
-  price: "24,99",
+  price: 24.99,
   title: "Tokyo Ghoul",
   description: "Figura de Kaneki-ken de Tokyo Ghoul",
   img: tokyoghoul,
@@ -24,7 +24,7 @@ const products= [
 },
 {
 id: 3,
-price: "24,99",
+price: 15,
 title: "Tengen Toppa",
 description: "Llavero metálico de Tengen Toppa",
 img: tengen,
@@ -32,7 +32,7 @@ stock: 7,
 },
 {
   id: 4,
-    price: "17,00",
+    price: 17.50,
     title: "Attack on Titan",
     description: "Attack on titan colección completa",
     img: tengen,

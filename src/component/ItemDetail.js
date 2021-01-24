@@ -1,17 +1,10 @@
-import { render } from '@testing-library/react';
+
 import React, {useState} from 'react';
 import ItemCount from './ItemCount.js';
 
 
 function ItemDetail({item, id, price, title, description, img, stock}){
   const [count, setCount] = useState(1);
-  const [info, setInfo] = useState([]);
-  const [add, setAdd] = useState(false);
-  function cartAdd(product){
-    setInfo(...info, { id: product.id, price: product.price, title: product.title, description: product.description, img: product.img, stock: product.stock, count: count})
-    setAdd(true)
-}
-
 
   function onAdd() {
       if(count >= 0 && count < stock) {
@@ -103,7 +96,7 @@ function ItemDetail({item, id, price, title, description, img, stock}){
       </table>
     </div>
     <hr></hr>
-    <ItemCount item={item} onAdd={onAdd} add={add} onRemove={onRemove} count={count} cartAdd={cartAdd}/>
+    <ItemCount item={item} id={id} onAdd={onAdd} onRemove={onRemove} count={count} />
 </div>
 </div>
 </section>

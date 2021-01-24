@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { Link } from 'react-router-dom';
+import {CartContext} from './CartContext';
 
-function ItemCount({item, onAdd, add, onRemove, count, cartAdd }){
+function ItemCount({item, id, onAdd, onRemove, count }){
+  const [open, setOpen] = useState(false);
+  const { CartAdd } = useContext(CartContext);
+  function addAndOpen(item, id, count){
+    CartAdd(item, id, count);
+    setOpen(true);
+}
 
     return <>
        <div className="container">
@@ -9,8 +17,8 @@ function ItemCount({item, onAdd, add, onRemove, count, cartAdd }){
           <input type="number" className="count" name="qty" value={count} />
           <span className="plus bg-dark" onClick={onAdd}>+</span>
         </div>
-        { !add? (<button className="btn btn-primary" onClick={ () => cartAdd(item)}>Añadir al carrito</button>)
-        : (<button className="btn btn-primary">Terminar la compra</button>)
+        { !open? (<button className="btn btn-primary" onClick={ () => addAndOpen(item,count,id)}>Añadir al carrito</button>)
+        : (<Link to="/cart"><button className="btn btn-primary">Terminar la compra</button></Link>)
       }
 
         </div>

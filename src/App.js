@@ -8,11 +8,13 @@ import ItemListContainer from './component/ItemListContainer.js';
 import ItemDetailContainer from './component/ItemDetailContainer.js';
 import Categories from './component/Categories.js';
 import Slider from './component/Slider.js';
+import Cart from './component/Cart.js';
+import CartProvider from './component/CartContext';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 const products = [{
       id: 1,
-      price: "35,99",
+      price: 35.99,
       title: "Slam Dunk",
       description: "Figuras coleccionables de Hanamichi y Rukawa de Slam Dunk",
       img: slamdunk,
@@ -21,7 +23,7 @@ const products = [{
   },
   {
     id: 2,
-    price: "24,99",
+    price: 24.99,
     title: "Tokyo Ghoul",
     description: "Figura de Kaneki-ken de Tokyo Ghoul",
     img: tokyoghoul,
@@ -30,7 +32,7 @@ const products = [{
 },
 {
   id: 3,
-  price: "15,00",
+  price: 15.00,
   title: "Tengen Toppa",
   description: "Llavero metálico de Tengen Toppa",
   img: tengen,
@@ -39,7 +41,7 @@ const products = [{
 },
 {
 id: 4,
-  price: "17,00",
+  price: 17.50,
   title: "Attack on Titan",
   description: "Attack on titan colección completa",
   img: tengen,
@@ -61,6 +63,7 @@ function App() {
 
   return (
     <>
+    <CartProvider>
     <BrowserRouter>
     <NavBar />
     <div class="container">
@@ -80,12 +83,16 @@ function App() {
             <Route exact path ="/item/:id">
               <ItemDetailContainer />
             </Route>
+            <Route exact path="/cart">
+            <Cart />
+          </Route>
           </Switch>
           </div>
 </div>
 </div>
 </div> 
 </BrowserRouter>
+</CartProvider>
     </>
     );
 }
