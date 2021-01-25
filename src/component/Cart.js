@@ -21,9 +21,17 @@ function Cart(){
     <div className="mb-3">
       <div className="pt-4 wish-list">
 
-        <h5 className="mb-4">Carrito (<span>{quantity}</span> productos)</h5>
-
+        { cart.length > 0 ? (
+            <h5 className="mb-4">Carrito (<span>{quantity}</span> productos)</h5>
+            )    
+            :
+            ( <>
+            <h5 className="mb-4">Aún no elegiste tus productos</h5>
+              
+            </>)}
+        
         <hr className="mb-4"/>
+
         { cart.length > 0 && cart.map( product => <CartItem key={product.id} 
                 id={product.id} title={product.title} img={product.img} price={product.price} 
                 amount={product.amount} />)}
@@ -36,9 +44,9 @@ function Cart(){
       <div className="pt-4">
 
         <h5 className="mb-0">Envío a domicilio</h5>
-        <p className="mb-4">Hasta las 14hs llega hoy.</p>
+        <p className="mb-4">Comprando hasta las 14hs llega hoy.</p>
 
-        <strong><p className="mb-0">{delivery}</p></strong>
+        <p className="mb-0">Entrega: <strong>{delivery}</strong></p>
       </div>
     </div>
     
