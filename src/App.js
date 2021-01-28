@@ -12,6 +12,7 @@ import Slider from './component/Slider.js';
 import Cart from './component/Cart.js';
 import CartProvider from './component/CartContext';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import {firestore} from "./firebaseConfig";
 
 const products = [{
       id: 1,
@@ -52,6 +53,27 @@ id: 4,
 
 function App() {
   const [items, setItems] = useState([])
+  useEffect(() =>{
+    const dataBase = firestore
+    const collection = dataBase.collection("items")
+    const query = collection.get()
+
+    query.then((res)=>{
+      const items_array = res.docs
+
+      items_array.forEach(item =>{
+        const producto_final = {
+        id : item.id,
+        ...item.data()
+      }
+      setItems([...items, producto_final])
+      })
+    })
+    .catch(()=>{
+      console.log("Error")
+    })
+  })
+ /* const [items, setItems] = useState([])
   useEffect(() => {
   const task = new Promise((res) =>{
     setTimeout(() => {
@@ -60,7 +82,7 @@ function App() {
   }
   )
   task.then(result =>setItems(result))
-},[]);
+},[]); */
 
   return (
     <>
