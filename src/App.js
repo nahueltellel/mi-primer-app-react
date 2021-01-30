@@ -14,7 +14,7 @@ import CartProvider from './component/CartContext';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import {firestore} from "./firebaseConfig";
 
-const products = [{
+/*const products = [{
       id: 1,
       price: 35.99,
       title: "Slam Dunk",
@@ -49,30 +49,33 @@ id: 4,
   img: titan,
   stock: 12,
   categoryId: "manga",
-}]
+}] */
 
 function App() {
-  const [items, setItems] = useState([])
+  const [fireItems, setFireItems] = useState([])
   useEffect(() =>{
     const dataBase = firestore
     const collection = dataBase.collection("items")
     const query = collection.get()
 
     query.then((res)=>{
-      const items_array = res.docs
+      /* const items_array = []
 
-      items_array.forEach(item =>{
-        const producto_final = {
-        id : item.id,
-        ...item.data()
+      docs.forEach(doc =>{
+        const nuevoDoc = {
+        id : doc.id,
+        ...doc.data()
       }
-      setItems([...items, producto_final])
+     items_array.push(nuevoDoc)
       })
+      setItems(items_array) */
+
+      setFireItems(res.docs.map(doc=>({id:doc.id,...doc.data()})))
     })
-    .catch(()=>{
-      console.log("Error")
+    .catch((error)=>{
+      console.log(error)
     })
-  })
+  }, [fireItems])
  /* const [items, setItems] = useState([])
   useEffect(() => {
   const task = new Promise((res) =>{
@@ -98,10 +101,10 @@ function App() {
           <div class="row">
           <Switch>
             <Route exact path="/">
-              <ItemListContainer products={items} />
+              <ItemListContainer products={fireItems} />
             </Route>
             <Route exact path="/category/:id">
-              <ItemListContainer products={items}/>
+              <ItemListContainer products={fireItems}/>
             </Route>
             <Route exact path ="/item/:id">
               <ItemDetailContainer />

@@ -2,9 +2,11 @@ import React, {useContext, useEffect} from 'react';
 import CartItem from './CartItem.js';
 import {CartContext} from './CartContext.js';
 import {Link} from 'react-router-dom';
+import {firestore} from "../firebaseConfig.js";
+import firebase from 'firebase/app';
 
 function Cart(){
-    const {cart, money, quantity, delivery, deliveryTime} = useContext(CartContext);
+    const {cart, money, quantity, delivery, deliveryTime, clearCart} = useContext(CartContext);
     useEffect(() => {
       deliveryTime()
     });
@@ -36,6 +38,7 @@ function Cart(){
                 id={product.id} title={product.title} img={product.img} price={product.price} 
                 amount={product.amount} />)}
       </div>
+      <button onClick={clearCart} type="button" className="btn btn-primary btn-block">Vaciar carrito</button>
     </div>
     
 
@@ -102,7 +105,7 @@ function Cart(){
           </li>
         </ul>
 
-        <button type="button" className="btn btn-primary btn-block">Checkout</button>
+        <button type="button" className="btn btn-primary btn-block">Comprar</button>
         <Link to={"/"}><button type="button" className="btn btn-primary btn-block mt-3">Seguir comprando</button></Link>
 
       </div>

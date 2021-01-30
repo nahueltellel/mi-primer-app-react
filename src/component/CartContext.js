@@ -17,13 +17,38 @@ function CartProvider({children}){
             setQuantity(cartQuantity)
         }, [cart])
 
+        function isInCart(id){
+            const item = cart.find(p => p.id === id)
+            if (item === undefined){
+                return false
+            }
+            else {
+                return true
+            }
+        }
+
     function CartAdd(product, count, id) {
+        if (isInCart(id)){
+            const oldProduct = cart.find(p => p.id === id)
+            const newQuantity = oldProduct.amount + count           
+            const newProduct = { id: oldProduct.id, name: oldProduct.name, image: oldProduct.image, price: oldProduct.price, amount: newQuantity}
+            const cartWithoutOld = cart.filter(product => product.id =! id)
+            const cartWithNew = [...cartWithoutOld, newProduct]
+            setCart(cartWithNew)
+        }            
+            else{
             const newItem = { id: product.id, title: product.title, img: product.img, price: product.price, amount: count }
             setCart([...cart, newItem]);
         }
+    }
         function deleteFromCart(id){
         const newCart = cart.filter(product => product.id !== id)
             setCart(newCart)
+        }
+
+        function clearCart(){
+            setCart([])
+            setQuantity(0)
         }
         
         function deliveryTime() {
@@ -39,7 +64,7 @@ function CartProvider({children}){
         }
         return <>
      
-            <CartContext.Provider value ={{ cart, quantity, money, delivery, CartAdd, deleteFromCart, deliveryTime}}>
+            <CartContext.Provider value ={{ cart, quantity, money, delivery, CartAdd, deleteFromCart, deliveryTime, clearCart}}>
                 { children }
             </CartContext.Provider>
     </>
