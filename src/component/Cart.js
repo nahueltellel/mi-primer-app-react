@@ -9,7 +9,7 @@ function Cart(){
     const {cart, money, quantity, delivery, deliveryTime, clearCart} = useContext(CartContext);
     useEffect(() => {
       deliveryTime()
-    });
+    },[]);
     return <>
         
         <section>

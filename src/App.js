@@ -1,9 +1,5 @@
 import React, {useState ,useEffect } from 'react';
 import './App.css';
-import slamdunk from './img/slamdunk.jpg';
-import titan from './img/titan.jpg';
-import tengen from './img/tengen.jpg';
-import tokyoghoul from './img/tokyoghoul.jpg';
 import NavBar from './component/NavBar.js';
 import ItemListContainer from './component/ItemListContainer.js';
 import ItemDetailContainer from './component/ItemDetailContainer.js';
@@ -55,7 +51,7 @@ function App() {
   const [fireItems, setFireItems] = useState([])
   useEffect(() =>{
     const dataBase = firestore
-    const collection = dataBase.collection("items")
+    const collection = dataBase.collection('items')
     const query = collection.get()
 
     query.then((res)=>{

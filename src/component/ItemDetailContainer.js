@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import ItemDetail from './ItemDetail.js';
 import {useParams} from "react-router-dom";
-import {firestore} from "../firebaseConfig.js";
+import {firestore} from "../firebaseConfig";
+/*
 import slamdunk from '../img/slamdunk.jpg';
 import titan from '../img/titan.jpg';
 import tengen from '../img/tengen.jpg';
 import tokyoghoul from '../img/tokyoghoul.jpg';
 
-/* const products= [
+ const products= [
   {
     id: 1,
     price: 35.99,
@@ -43,24 +44,23 @@ stock: 7,
 ] */
 
 function ItemDetailContainer(){
-  const [fireItem, setFireItem ] = useState();
+  const [item, setItem ] = useState();
   const {id} = useParams();
     useEffect(() => {
-     const db = firestore
-     const collection = db.collection('items') 
-     const item = collection.doc(id)
-
-     item.get()
-      .then( (i) => {
-        setFireItem({ id: i.id, ...i.data()})
+     const db = firestore;
+     const collection = db.collection('items');
+     const itm = collection.doc(id);
+     itm.get()
+      .then( doc => {
+        setItem({ id: doc.id, ...doc.data()});
       })
-
   },  [id]);
        return <>
-       { fireItem ? 
-  <ItemDetail item={fireItem} id={fireItem.id} price={fireItem.price} title={fireItem.title} description={fireItem.description} img={fireItem.img} stock={fireItem.stock} /> : <span>CARGANDO</span>
+       { item ? 
+  <ItemDetail item={item} id={item.id} price={item.price} title={item.title} description={item.description} img={item.img} stock={item.stock} /> : <span>CARGANDO</span>
 }
-  </>
+</>
+       
     }
   
   export default ItemDetailContainer;
