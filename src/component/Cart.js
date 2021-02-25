@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import CartItem from './CartItem.js';
 import {CartContext} from './CartContext.js';
 import {Link} from 'react-router-dom';
@@ -7,9 +7,31 @@ import firebase from 'firebase/app';
 
 function Cart(){
     const {cart, money, quantity, delivery, deliveryTime, clearCart} = useContext(CartContext);
+    const [ openPay, setOpenPay ] = useState(false)
+    const [ name, setName ] = useState("")
+    const [ phone, setPhone ] = useState("")
+    const [ email, setEmail ] = useState("")
     useEffect(() => {
       deliveryTime()
     },[]);
+
+    function submitOrder(){
+
+        
+      const db = firestore
+      const orders = db.collection('orders')
+
+      const order = {
+          buyer: { name: name, phone: phone, email: email},
+          items: cart,
+          date: firebase.firestore.Timestamp.fromDate(new Date()),
+          total: money,
+      }
+      orders.add(order)
+      .then(({ id }) => alert("Anotá el id de tu compra " + id))
+      .catch((error) => console.log(error))
+  }
+
     return <>
         
         <section>
@@ -105,7 +127,7 @@ function Cart(){
           </li>
         </ul>
 
-        <button type="button" className="btn btn-primary btn-block">Comprar</button>
+        <button onClick={() => {setOpenPay(true)}} type="button" className="btn btn-primary btn-block">Comprar</button>
         <Link to={"/"}><button type="button" className="btn btn-primary btn-block mt-3">Seguir comprando</button></Link>
 
       </div>
@@ -131,6 +153,18 @@ function Cart(){
 
 
 </div>
+{ openPay && 
+            <form>
+            <input type="text" label="Name" value={name} 
+            onChange={(e) => setName(e.target.value)} />
+            <input type="tel" label="Telephone" value={phone} 
+            onChange={(e) => setPhone(e.target.value)} />
+            <input type="email" label="Email" value={email} 
+            onChange={(e) => setEmail(e.target.value)} />
+            <button onClick={submitOrder} variant="contained" color="primary">
+                    Sí!
+                </button>
+          </form>}
 
 
 </section>
